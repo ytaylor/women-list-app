@@ -1,11 +1,17 @@
-import '../styles/App.scss';
+import "../styles/App.scss";
+import Filters from "./Filters";
 
 function App() {
   return (
     <div>
-      Escribe aquí tu HTML...
+      <Filters
+        countries={countries}
+        fields={fields}
+        selected={filters}
+        onChange={handleFilterChange}
+      />
     </div>
-  )
+  );
 }
 
 export default App;
