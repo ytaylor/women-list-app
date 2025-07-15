@@ -1,7 +1,7 @@
-import "../styles/App.scss";
+import "./styles/App.scss";
 import List from "./components/List";
 import data from "./data/women.json";
-import Filters from "./Filters";
+import Filters from "./components/Filters";
 
 function App() {
   return (
