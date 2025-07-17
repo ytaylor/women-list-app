@@ -1,35 +1,44 @@
-import { useState, useEffect } from 'react';
-import List from './components/List';
-import Filters from './components/Filters';
-import data from './data/women.json';
-import './styles/App.scss';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router";
+import { useState } from "react";
 
+import List from "./components/List";
+import AddWoman from "./components/AddWoman";
+import AcercaDe from "./components/AcercaDe";
+
+import data from "./data/women.json";
+import "./styles/App.scss";
 
 const App = () => {
-  const [filters, setFilters] = useState({ country: '', field: '' });
+  const [women, setWomen] = useState(data);
 
-  const countries = [...new Set(data.map(w => w.country))];
-  const fields = [...new Set(data.map(w => w.field))];
-
-  const handleFilterChange = (e) => {
-    setFilters({ ...filters, [e.target.name]: e.target.value });
+  const handleAddWoman = (newWoman) => {
+    const id = women.length + 1;
+    setWomen([...women, { id, ...newWoman }]);
   };
 
-  const filtered = data.filter(w =>
-    (!filters.country || w.country === filters.country) &&
-    (!filters.field || w.field === filters.field)
-  );
-
   return (
-    <div className="app">
-      <header className="app-header">
-        <h1>AfroLegacy</h1>
-        <p>Celebrando el legado, la lucha y los logros de mujeres negras extraordinarias</p>
+    <Router>
+      <header className="header-elegante">
+        <div className="header-inner">
+          <h1 className="logo"><Link to="/">Black Heroines</Link></h1>
+          <p className="subtitle">Celebrando el legado de mujeres negras extraordinarias</p>
+          <nav className="nav-elegante">
+            <Link to="/">Inicio</Link>
+            <Link to="/nueva">Añadir mujer</Link>
+            <Link to="/acerca">Acerca</Link>
+          </nav>
+        </div>
       </header>
 
-      <Filters countries={countries} fields={fields} selected={filters} onChange={handleFilterChange} />
-      <List women={filtered} />
-    </div>
+
+      <main className="app">
+        <Routes>
+          <Route path="/" element={<List women={women} />} />
+          <Route path="/nueva" element={<AddWoman onAdd={handleAddWoman} />} />
+          <Route path="/acerca" element={<AcercaDe />} />
+        </Routes>
+      </main>
+    </Router>
   );
 };
 

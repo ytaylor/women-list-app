@@ -83,25 +83,99 @@
 
 
 //Header
-.app-header {
-    background: linear-gradient(to right, #3b0a45, #da627d);
-    color: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    margin-bottom: 2rem;
+.header-elegante {
+    background-color: #fefcf9;
+    border-bottom: 1px solid #ddd;
+    padding: 2rem 1rem;
+    font-family: 'Georgia', serif;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.app-header h1 {
+.header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 2.8rem;
     margin: 0;
-    font-size: 2.5rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
 }
 
-.app-header p {
+.logo a {
+    text-decoration: none;
+    color: #3b0a45;
+}
+
+.subtitle {
     margin-top: 0.5rem;
     font-size: 1.1rem;
-    font-weight: 300;
+    color: #6a4b6f;
+    font-style: italic;
+}
+
+.nav-elegante {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.nav-elegante a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #5a2a63;
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-elegante a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #da627d;
+    transition: width 0.3s ease;
+}
+
+.nav-elegante a:hover::after {
+    width: 100%;
+}
+
+.nav-elegante a:hover {
+    color: #da627d;
+}
+
+// Menú
+.nav {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: background-color 0.2s ease;
+}
+
+.nav a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Estilo para otras páginas */
+.page {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
