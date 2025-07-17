@@ -1,64 +1,107 @@
-/* App general */
+/* Layout general */
 .app {
     padding: 2rem;
-    font-family: sans-serif;
-    max-width: 800px;
+    font-family: 'Segoe UI', sans-serif;
+    max-width: 900px;
     margin: 0 auto;
+    background-color: #fefcf9;
+    color: #333;
+}
+
+/* Título */
+.app h1 {
+    font-size: 2rem;
+    color: #3b0a45;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border-bottom: 2px solid #da627d;
+    padding-bottom: 0.5rem;
 }
 
 /* Filtros */
 .filters {
     display: flex;
     gap: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    justify-content: center;
 }
 
 .filters select {
     padding: 0.5rem;
     font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
 }
 
-/* Lista de mujeres */
+/* Tarjeta de mujer */
 .list-item {
-    border: 1px solid #ccc;
+    display: flex;
+    gap: 1.5rem;
+    background-color: #fff;
+    border-left: 8px solid #da627d;
     border-radius: 8px;
     padding: 1rem;
     margin-bottom: 1.5rem;
-    background-color: #f9f9f9;
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
+    box-shadow: 0 2px 6px rgba(59, 10, 69, 0.1);
 }
 
 .list-item img {
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
     object-fit: cover;
-    border-radius: 6px;
-    flex-shrink: 0;
+    border-radius: 8px;
+    border: 2px solid #3b0a45;
 }
 
 .list-item-content {
     flex: 1;
 }
 
-.list-item h2 {
-    margin: 0 0 0.5rem 0;
+.list-item-content h2 {
+    margin: 0;
     font-size: 1.25rem;
-    font-weight: bold;
+    color: #3b0a45;
 }
 
-.list-item p {
-    margin: 0.25rem 0;
+.list-item-content p {
+    margin: 0.3rem 0;
     font-size: 0.95rem;
 }
 
+/* Logros */
 .achievements {
     margin-top: 1rem;
     padding-left: 1rem;
+    border-left: 3px solid #d1bfa7;
 }
 
 .achievements li {
     margin-bottom: 0.25rem;
     font-size: 0.9rem;
+}
+
+
+//Header
+.app-header {
+    background: linear-gradient(to right, #3b0a45, #da627d);
+    color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.app-header p {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 300;
 }
