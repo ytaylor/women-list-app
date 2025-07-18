@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router";
 import { useState } from "react";
-
+import callToApi from './services/api'
 import List from "./components/List";
 import AddWoman from "./components/AddWoman";
 import AcercaDe from "./components/AcercaDe";
@@ -11,9 +11,18 @@ import "./styles/App.scss";
 const App = () => {
   const [women, setWomen] = useState(data);
 
+  /*   useEffect(() => {
+      //Código que quiere que ejecutes
+      callToApi().then(data => {
+        setWomen(data);
+      })
+    }, []); */
+
   const handleAddWoman = (newWoman) => {
     const id = women.length + 1;
     setWomen([...women, { id, ...newWoman }]);
+
+
   };
 
   return (

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import '../styles/AddForm.scss';
+import { addPersonToApi } from './services/api';
+
 
 const AddWoman = ({ onAdd }) => {
     const [form, setForm] = useState({
@@ -42,17 +44,24 @@ const AddWoman = ({ onAdd }) => {
             alert("Faltan campos obligatorios.");
             return;
         }
-        onAdd(form);
-        setForm({
-            full_name: "",
-            birth_date: "",
-            death_date: "",
-            country: "",
-            field: "",
-            bio: "",
-            photo_url: "",
-            achievements: [{ title: "", description: "", year: "" }]
-        });
+        addPersonToApi(form)
+            .then((nuevaPersona) => {
+                onAdd(nuevaPersona);
+                setForm({
+                    full_name: "",
+                    birth_date: "",
+                    death_date: "",
+                    country: "",
+                    field: "",
+                    bio: "",
+                    photo_url: "",
+                    achievements: [{ title: "", description: "", year: "" }]
+                });
+            })
+            .catch((err) => {
+                alert('Error al guardar: ' + err.message);
+            });
+
     };
 
     return (
